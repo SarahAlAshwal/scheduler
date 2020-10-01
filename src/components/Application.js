@@ -3,6 +3,8 @@ import axios from 'axios';
 import "components/Application.scss";
 import DayList from "components/DayList.js";
 import Appointment from 'components/Appointment';
+import { getAppointmentsForDay } from "helpers/selectors.js";
+
 
 // const appointments = [
 //   {
@@ -75,7 +77,7 @@ export default function Application(props) {
     }
   );
 
-  const dailyAppointments = Object.values(state.appointments);
+  const dailyAppointments = getAppointmentsForDay(state,state.day)
 
   //const [selected, setSeleted] = useState(false);
   useEffect(()=>{
