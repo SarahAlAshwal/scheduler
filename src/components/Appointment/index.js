@@ -13,11 +13,30 @@ const CREATE = "CREATE"
 
 export default function Appointment (props){
 
-  console.log('inside appointment: ', props.interviewers[0]);
+  console.log('appointments props:' ,props);
+
+ 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
 
+  // React.useEffect(() => {
+  //   if(props.interview && mode === EMPTY){
+  //     transition(SHOW)
+  //   }
+  //   if(props.interview === null && mode === EMPTY){
+  //     transition(EMPTY)
+  //   }
+  // },[])
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+    props.bookInterview(props.id, interview)
+    transition(SHOW)
+  }
 
   return (
     <article className="appointment">
@@ -29,7 +48,7 @@ export default function Appointment (props){
           interviewer={props.interview.interviewer}
         />
       )}  
-      {mode === CREATE && <Form interviewers={[...props.interviewers]}  onSave={console.log("onSave")} onCancel={()=> transition(EMPTY)}/>}
+      {mode === CREATE && <Form interviewers={props.interviewers}  onSave={save} onCancel={()=> transition(EMPTY)}/>}
   
     </article>
   );

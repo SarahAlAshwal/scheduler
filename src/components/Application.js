@@ -28,10 +28,23 @@ export default function Application(props) {
     }
   );
 
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+  //  console.log(`caled id: ${id}`)
+   setState({...state, appointments})
+  }
+
   const dailyAppointments = getAppointmentsForDay(state,state.day)
   const interviewersOfDay = getInterviewersForDay(state, state.day);
-  
-  console.log('interviewrs of day: ', interviewersOfDay);
 
 
   //const [selected, setSeleted] = useState(false);
@@ -47,7 +60,7 @@ export default function Application(props) {
     }
     )
   },[])
-  const AppointmentArr = dailyAppointments.map((appointment)=> <Appointment key={appointment.id} time={appointment.time} interviewers= {interviewersOfDay} interview={getInterview(state,appointment.interview)}/>);
+  const AppointmentArr = dailyAppointments.map((appointment)=> <Appointment key={appointment.id} id= {appointment.id} time={appointment.time} interviewers= {interviewersOfDay} interview={getInterview(state,appointment.interview)} bookInterview={bookInterview}/>);
   return (
     <main className="layout">
       <section className="sidebar">
@@ -77,7 +90,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {AppointmentArr}
-        <Appointment key="last" time="5pm" interviewers= {interviewersOfDay} />
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
