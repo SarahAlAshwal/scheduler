@@ -3,8 +3,13 @@ import InterviewerList from 'components/InterviewerList';
 import Button from 'components/Button';
 
 export default function Form (props){
+  console.log('inside form: ', props);
   const [name, setName] = useState(props.name || "");
   const[interviewer, setInterviewer] = useState(props.interviewer || null);
+
+
+  
+
 
   function reset() {
     setName("");
@@ -32,7 +37,7 @@ export default function Form (props){
           />
          
         </form>
-        <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer} />
+        <InterviewerList interviewers={[...props.interviewers]} value={interviewer} onChange={setInterviewer} />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">

@@ -3,7 +3,7 @@ import axios from 'axios';
 import "components/Application.scss";
 import DayList from "components/DayList.js";
 import Appointment from 'components/Appointment';
-import { getAppointmentsForDay, getInterview } from "helpers/selectors.js";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay} from "helpers/selectors.js";
 
 
 export default function Application(props) {
@@ -12,6 +12,8 @@ export default function Application(props) {
   const setDay = (day) => {
     setState({...state , day})
   }
+
+  
   
   // const setDays = (days) => {
   //   setState(prev => ({...prev, days}))
@@ -27,6 +29,9 @@ export default function Application(props) {
   );
 
   const dailyAppointments = getAppointmentsForDay(state,state.day)
+  const interviewersOfDay = getInterviewersForDay(state, state.day);
+  
+  console.log('interviewrs of day: ', interviewersOfDay);
 
 
   //const [selected, setSeleted] = useState(false);
@@ -42,7 +47,7 @@ export default function Application(props) {
     }
     )
   },[])
-  const AppointmentArr = dailyAppointments.map((appointment)=> <Appointment key={appointment.id} time={appointment.time} interview={getInterview(state,appointment.interview)}/>);
+  const AppointmentArr = dailyAppointments.map((appointment)=> <Appointment key={appointment.id} time={appointment.time} interviewers= {interviewersOfDay} interview={getInterview(state,appointment.interview)}/>);
   return (
     <main className="layout">
       <section className="sidebar">
@@ -72,7 +77,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {AppointmentArr}
-        <Appointment key="last" time="5pm" />
+        <Appointment key="last" time="5pm" interviewers= {interviewersOfDay} />
       </section>
     </main>
   );

@@ -5,16 +5,19 @@ import Show from 'components/Appointment/Show';
 import Empty from 'components/Appointment/Empty';
 import useVisualMode from 'hooks/useVisualMode';
 import Form from 'components/Appointment/Form'
-import { getInterviewersForDay } from "helpers/selectors";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE"
 
+
 export default function Appointment (props){
+
+  console.log('inside appointment: ', props.interviewers[0]);
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
 
   return (
     <article className="appointment">
@@ -26,8 +29,8 @@ export default function Appointment (props){
           interviewer={props.interview.interviewer}
         />
       )}  
-      {mode === CREATE && <Form interviewers={[]}  onSave={console.log("onSave")} onCancel={()=> transition(EMPTY)}/>}
-
+      {mode === CREATE && <Form interviewers={[...props.interviewers]}  onSave={console.log("onSave")} onCancel={()=> transition(EMPTY)}/>}
+  
     </article>
   );
 }
