@@ -20,22 +20,13 @@ export default function Appointment (props){
     props.interview ? SHOW : EMPTY
   );
 
-  // React.useEffect(() => {
-  //   if(props.interview && mode === EMPTY){
-  //     transition(SHOW)
-  //   }
-  //   if(props.interview === null && mode === EMPTY){
-  //     transition(EMPTY)
-  //   }
-  // },[])
-
   function save(name, interviewer) {
     const interview = {
       student: name,
       interviewer
     };
     props.bookInterview(props.id, interview)
-    transition(SHOW)
+    transition(SHOW);
   }
 
   return (
@@ -48,7 +39,7 @@ export default function Appointment (props){
           interviewer={props.interview.interviewer}
         />
       )}  
-      {mode === CREATE && <Form interviewers={props.interviewers}  onSave={save} onCancel={()=> transition(EMPTY)}/>}
+      {mode === CREATE && <Form interviewers={props.interviewers} onSave={save} onCancel={()=> transition(EMPTY)}/>}
   
     </article>
   );

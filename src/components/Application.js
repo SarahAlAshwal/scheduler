@@ -29,10 +29,18 @@ export default function Application(props) {
   );
 
   function bookInterview(id, interview) {
+
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
     };
+
+      axios.put(`/api/appointments/${id}`, appointment)
+      .then((response) => {
+        console.log(response);
+      });
+
+   
 
     const appointments = {
       ...state.appointments,
