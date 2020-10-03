@@ -3,8 +3,9 @@ import Button from 'components/Button';
 
 export default function Confirm (props){
 
+
   function deleteAppointment () {
-    props.onDelete();
+    props.onDelete(props.id);
   }
 
   return (

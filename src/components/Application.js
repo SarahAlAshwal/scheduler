@@ -56,7 +56,7 @@ export default function Application(props) {
     }
     console.log(appointment);
     
-    return axios.put(`/api/appointments/${id}`, appointment)
+    return axios.delete(`/api/appointments/${id}`)
     .then ((res) => setState({...state, appointments}))
     .catch();
     
