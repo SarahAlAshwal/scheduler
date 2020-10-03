@@ -30,25 +30,21 @@ export default function Application(props) {
 
   function bookInterview(id, interview) {
 
+    console.log('inside bookInterview',interview);
+
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
     };
-
-      axios.put(`/api/appointments/${id}`, appointment)
-      .then((response) => {
-        console.log(response);
-      });
-
-   
 
     const appointments = {
       ...state.appointments,
       [id]: appointment
     };
 
-  //  console.log(`caled id: ${id}`)
-   setState({...state, appointments})
+      return axios.put(`/api/appointments/${id}`, appointment)
+      .then((res) => setState({ ...state, appointments }));
+   
   }
 
   const dailyAppointments = getAppointmentsForDay(state,state.day)
@@ -98,7 +94,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {AppointmentArr}
-        <Appointment key="last" time="5pm" />
+        <Appointment key="last" time="5pm" interviewers= {interviewersOfDay} bookInterview={bookInterview} />
       </section>
     </main>
   );
