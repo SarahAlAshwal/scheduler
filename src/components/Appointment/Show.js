@@ -2,10 +2,11 @@ import React from 'react';
 
 export default function Show (props) {
 
-  console.log(props);
-
   function deleteAppointment () {
     props.onDelete(props.id);
+  }
+  function editAppointment () {
+    props.onEdit(props.id);
   }
   return (
 
@@ -23,7 +24,7 @@ export default function Show (props) {
           className="appointment__actions-button"
           src="images/edit.png"
           alt="Edit"
-          onClick={props.onEdit}
+          onClick={editAppointment}
         />
         <img
           className="appointment__actions-button"
