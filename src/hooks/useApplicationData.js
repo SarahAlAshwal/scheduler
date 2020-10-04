@@ -15,22 +15,28 @@ export default function useApplicationData (initial) {
     setState({...state , day})
   }
 
-  function bookInterview(id, interview) {
+  //the change value is +1 when we delete an appointment and -1 when we add an appointment 
+  function changeSpots (change) {
+    const myDay = state.days.find((d)=> d.name === state.day )
+      myDay.spots = myDay.spots + change ;
+      const dayId = myDay.id;
+      const days = [...state.days]
+      days[dayId] = myDay;
+  }
 
+  function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
     };
-
     const appointments = {
       ...state.appointments,
       [id]: appointment
     };
-
-      return axios.put(`/api/appointments/${id}`, appointment)
+    changeSpots(-1);
+    return axios.put(`/api/appointments/${id}`, appointment)
       .then((res) => setState({ ...state, appointments }))
       .catch();
-   
   }
 
   function cancelAppointment(id) {
@@ -41,10 +47,13 @@ export default function useApplicationData (initial) {
     const appointments = {
       ...state.appointments, [id]:appointment
     }
-    console.log(appointment);
+   
+    changeSpots(1);
     
     return axios.delete(`/api/appointments/${id}`)
-    .then ((res) => setState({...state, appointments}))
+    .then ((res) => {
+      setState({...state, appointments})
+    })
     .catch();
     
   }
