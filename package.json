@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8080",
-  "secure":false,
+  "secure": false,
   "dependencies": {
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
@@ -44,6 +44,7 @@
     "@testing-library/react-hooks": "^3.4.2",
     "babel-loader": "^8.0.5",
     "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
     "react-test-renderer": "^16.9.0"
   },
   "jest": {
