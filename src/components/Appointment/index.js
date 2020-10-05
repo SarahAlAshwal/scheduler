@@ -29,12 +29,17 @@ export default function Appointment (props){
       student: name,
       interviewer
     };
-
-    transition(SAVING);
+    // check that both the student name and the interviewer id are not null 
+    if (interview.student && interview.interviewer ) {
+      transition(SAVING);
     props
     .bookInterview(props.id, interview)
     .then(res => transition(SHOW))
     .catch(error => transition(ERROR_SAVE, true))
+    } else {
+      transition(ERROR_SAVE, true);
+    }
+    
     
     
   }
