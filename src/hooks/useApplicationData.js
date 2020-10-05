@@ -25,6 +25,8 @@ export default function useApplicationData (initial) {
   }
 
   function bookInterview(id, interview) {
+    const editOrAdd = state.appointments[id].interview ? 0: -1;
+    
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -33,7 +35,7 @@ export default function useApplicationData (initial) {
       ...state.appointments,
       [id]: appointment
     };
-    changeSpots(-1);
+    changeSpots(editOrAdd);
     return axios.put(`/api/appointments/${id}`, appointment)
       .then((res) => setState({ ...state, appointments }))
       .catch();
