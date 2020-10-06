@@ -44,7 +44,6 @@ export default function Form (props){
             onChange= {(event) => { setName(event.target.value)}}
           />
           <section className="appointment__validation">{error}</section>
-         {/* {!name && <p>student name cannot be blank </p>} */}
         </form>
         <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer} />
       </section>
