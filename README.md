@@ -1,5 +1,7 @@
 # Interview Scheduler
 
+Scheduler is a Single Page Application that allows users to book and cancel interviews. This application was built using React view library. 
+
 ## Setup
 
 Install dependencies with `npm install`.
