@@ -8,10 +8,17 @@ export default function Form (props){
   const [error, setError] = useState("");
 
   function validate() {
+    //check if the student name is empty
     if (name === "") {
       setError("Student name cannot be blank");
       return;
     }
+    //check if the user haven't choose an interviewer 
+    if (!interviewer) {
+      setError("Please choose un interviewer")
+      return;
+    }
+    //if both the student name and the interviewer have values the save operation can be processed
     setError("");
     props.onSave(name, interviewer);
   }
@@ -25,10 +32,7 @@ export default function Form (props){
     reset();
     props.onCancel();
   }
-  // function saveNow (){
-  //   props.onSave(name,interviewer);
-
-  // }
+ 
 
   return (
     <main className="appointment__card appointment__card--create">

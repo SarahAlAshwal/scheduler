@@ -6,7 +6,7 @@ import Button from "components/Button";
 
 afterEach(cleanup);
 
-xit("renders without crashing", () => {
+it("renders without crashing", () => {
   render(<Button />);
 });
 
@@ -32,9 +32,7 @@ it("renders a danger button", () => {
 
 it("renders a clickable button", () => {
   const handleClick = jest.fn();
-  const { getByText } = render(
-    <Button onClick={handleClick}>Clickable</Button>
-  );
+  const { getByText } = render( <Button onClick={handleClick}>Clickable</Button>);
 
   const button = getByText("Clickable");
 

@@ -25,6 +25,9 @@ export default function useApplicationData (initial) {
   }
 
   function bookInterview(id, interview) {
+    //check if the interview is empty or not to decide if the operation is edit or add 
+    //The value 0 is for edit an appointment so the spots number will not change
+    //The value -1 for add an appointment so the number of spot will decrease by 1
     const editOrAdd = state.appointments[id].interview ? 0: -1;
     
     const appointment = {
@@ -49,7 +52,7 @@ export default function useApplicationData (initial) {
     const appointments = {
       ...state.appointments, [id]:appointment
     }
-   
+   //the passed value is +1 so the number of spots will increase by one
     changeSpots(1);
     
     return axios.delete(`/api/appointments/${id}`)

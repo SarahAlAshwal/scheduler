@@ -1,5 +1,3 @@
-const { CYCLIC_KEY } = require("@storybook/addon-actions/dist/constants")
-
 describe('Appointments', ()=> {
   beforeEach(() => {
     cy.request('GET', "/api/debug/reset");
@@ -23,7 +21,7 @@ describe('Appointments', ()=> {
     cy.contains(".appointment__card--show", 'Tori Malcolm');
     cy.contains(".appointment__card--show", "Archie Cohen");
   })
-  it.only( "should cancel an interview" ,()=> {
+  it( "should cancel an interview" ,()=> {
     cy.get("[alt=Delete]").click({force:true})
     cy.contains("Confirm").click();
     cy.contains("DELETING");

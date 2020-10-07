@@ -19,9 +19,9 @@ export function getInterview(state, interview) {
   } else {
     return null;
   }
-
   return foundInterview;
 }
+
 
  export function getInterviewersForDay (state, Day) {
 

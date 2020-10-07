@@ -29,24 +29,17 @@ export default function Appointment (props){
       student: name,
       interviewer
     };
-    // check that both the student name and the interviewer id are not null 
-    if (interview.student && interview.interviewer ) {
+    
       transition(SAVING);
     props
     .bookInterview(props.id, interview)
     .then(res => transition(SHOW))
     .catch(error => transition(ERROR_SAVE, true))
-    } else {
-      transition(ERROR_SAVE, true);
-    }
-    
-    
     
   }
 
   function onDelete(id) {
     transition(CONFIRM);
-    //transition(DELETING);
     transition(DELETING, true);
     props.cancelAppointment(id)
     .then((res) => transition(EMPTY))
