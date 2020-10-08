@@ -37,19 +37,19 @@ npm run storybook
 - react-scripts
 
 ## Final Product
-###Appointments on Monday
+### Appointments on Monday
 !["A sreenshot for the appointments on Monday"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/AppointmentsOnMonday.png)
 
-###Adding a new appointment
+### Adding a new appointment
 !["A screenshot for adding a new appointment"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/AddNewAppointment.png)
 
-###Deleting an appointment
+### Deleting an appointment
 !["A screenshot for deleting an appointment"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/DeleteAppointment.png)
 
-###Trying to add an appointment with no student name
+### Trying to add an appointment with no student name
 !["A screenshot for trying to add an appointment with no student name"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/SaveAppointmentWithoutInterviewer.png)
 
-###Trying to add an appointment without choosing an interviewer
+### Trying to add an appointment without choosing an interviewer
 !["A screenshot for trying to add an appointment without choosing an interviewer"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/SaveEmptyStudentName.png)
 
 
