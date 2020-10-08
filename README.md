@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-Scheduler is a Single Page Application that allows users to book and cancel interviews. It validates that the appointments inputs (Student name and Interviewer) are not empty before saving process. It also update the available spots after any creation or deletion of an appointment. This application was built using React view library. 
+Scheduler is a Single Page Application that allows users to book and cancel interviews. It validates that the appointments inputs (Student name and Interviewer) are not empty before saving process. It also updates the available spots after any creation or deletion of an appointment. This application was built using React view library. 
 
 ## Setup
 
