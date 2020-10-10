@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from 'components/Button';
 
-export default function Confirm (props){
+export default function Confirm(props) {
 
 
-  function deleteAppointment () {
+  function deleteAppointment() {
     props.onDelete(props.id);
   }
 

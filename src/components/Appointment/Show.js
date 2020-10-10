@@ -1,40 +1,40 @@
 import React from 'react';
 
-export default function Show (props) {
+export default function Show(props) {
 
-  function deleteAppointment () {
+  function deleteAppointment() {
     props.onDelete(props.id);
   }
-  function editAppointment () {
+  function editAppointment() {
     props.onEdit(props.id);
   }
   return (
 
-  <main className="appointment__card appointment__card--show">
-    <section className="appointment__card-left">
-      <h2 className="text--regular">{props.student}</h2>
-      <section className="interviewer">
-      <h4 className="text--light">Interviewer</h4>
-      <h3 className="text--regular">{props.interviewer.name}</h3>
+    <main className="appointment__card appointment__card--show">
+      <section className="appointment__card-left">
+        <h2 className="text--regular">{props.student}</h2>
+        <section className="interviewer">
+          <h4 className="text--light">Interviewer</h4>
+          <h3 className="text--regular">{props.interviewer.name}</h3>
+        </section>
       </section>
-    </section>
-    <section className="appointment__card-right">
-      <section className="appointment__actions">
-        <img
-          className="appointment__actions-button"
-          src="images/edit.png"
-          alt="Edit"
-          onClick={editAppointment}
-        />
-        <img
-          className="appointment__actions-button"
-          src="images/trash.png"
-          alt="Delete"
-          onClick={deleteAppointment}
-        />
+      <section className="appointment__card-right">
+        <section className="appointment__actions">
+          <img
+            className="appointment__actions-button"
+            src="images/edit.png"
+            alt="Edit"
+            onClick={editAppointment}
+          />
+          <img
+            className="appointment__actions-button"
+            src="images/trash.png"
+            alt="Delete"
+            onClick={deleteAppointment}
+          />
+        </section>
       </section>
-    </section>
-  </main>
+    </main>
 
   );
 }
