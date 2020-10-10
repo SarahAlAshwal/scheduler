@@ -5,8 +5,8 @@ import classnames from 'classnames'
 
 export default function DayListItem(props) {
 
-  const dayClass = classnames({'day-list__item':!(props.selected | (props.spots === 0))},{'day-list__item--selected': props.selected,'day-list__item--full': (props.spots === 0)} );
-  
+  const dayClass = classnames({'day-list__item':true},{'day-list__item--selected': props.selected,'day-list__item--full': (props.spots === 0)} );
+  console.log(dayClass)
   function formatSpots (spots) {
     let spotsText = `${spots} spots remaining`;
     if (spots === 1) 

@@ -3,21 +3,22 @@ export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
 
-  function transition(newMode, replace = false) {
-    if (!replace) {
+  //This function performs the push and replace operations for stack 
+  function transition(newMode, replace = false){
+    if (!replace){
       setHistory([...history,newMode]);
-    } else {
+    } else{
         const temp = history.slice(0,history.length-1);
-        setHistory([...temp,newMode]);
-      
+        setHistory([...temp,newMode]); 
     }
     setMode(newMode);
     return { mode };
-}
+    }
 
-  function back() { 
+  //This function performs the pop operation in a stack  
+  function back(){ 
 
-    if (history.length>1) {
+    if (history.length>1){
       const temp = history.slice(0,history.length-1);
       
       setHistory(temp);
@@ -28,4 +29,4 @@ export default function useVisualMode(initial) {
 
 
     return { mode, transition, back };
-}
+  }
