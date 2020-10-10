@@ -37,12 +37,20 @@ npm run storybook
 - react-scripts
 
 ## Final Product
-!["A sreenshot for the appointments on Monday"](https://github.com/SarahAlAshwal/tweeter/blob/master/Doc/main.png)
-!["A screenshot for adding a new appointment"](https://github.com/SarahAlAshwal/tweeter/blob/master/Doc/tweets.png)
-!["A screenshot for deleting an appointment"](https://github.com/SarahAlAshwal/tweeter/blob/master/Doc/emptyTweetError.png)
-!["A screenshot for trying to add an appointment with no student name"](https://github.com/SarahAlAshwal/tweeter/blob/master/Doc/longTweetError.png)
+### Appointments on Monday
+!["A sreenshot for the appointments on Monday"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/AppointmentsOnMonday.png)
 
-!["A screenshot for trying to add an appointment without choosing an interviewer"](https://github.com/SarahAlAshwal/tweeter/blob/master/Doc/longTweetError.png)
+### Adding a new appointment
+!["A screenshot for adding a new appointment"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/AddNewAppointment.png)
+
+### Deleting an appointment
+!["A screenshot for deleting an appointment"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/DeleteAppointment.png)
+
+### Trying to add an appointment with no student name
+!["A screenshot for trying to add an appointment with no student name"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/SaveAppointmentWithoutInterviewer.png)
+
+### Trying to add an appointment without choosing an interviewer
+!["A screenshot for trying to add an appointment without choosing an interviewer"](https://github.com/SarahAlAshwal/scheduler/blob/master/Docs/SaveEmptyStudentName.png)
 
 
 ## Getting Started
