@@ -7,25 +7,25 @@ export default function useVisualMode(initial) {
     if (!replace) {
       setHistory([...history,newMode]);
     } else {
-      const temp = history.slice(0,history.length-1);
-      setHistory([...temp,newMode]);
+        const temp = history.slice(0,history.length-1);
+        setHistory([...temp,newMode]);
       
     }
     setMode(newMode);
     return { mode };
 }
 
-function back() { 
+  function back() { 
 
-  if (history.length>1) {
-    const temp = history.slice(0,history.length-1);
-    
-     setHistory(temp);
-    setMode(temp[temp.length-1]);
+    if (history.length>1) {
+      const temp = history.slice(0,history.length-1);
+      
+      setHistory(temp);
+      setMode(temp[temp.length-1]);
+    }
+    return {mode};
   }
-  return {mode};
-}
 
 
-  return { mode, transition, back };
+    return { mode, transition, back };
 }

@@ -27,10 +27,10 @@ export default function Application(props) {
         {
         <>
           <img
-          className="sidebar--centered"
-          src="images/logo.png"
-          alt="Interview Scheduler"
-        />
+            className="sidebar--centered"
+            src="images/logo.png"
+            alt="Interview Scheduler"
+          />
         <hr className="sidebar__separator sidebar--centered"
         /> 
         <nav className="sidebar__menu">
